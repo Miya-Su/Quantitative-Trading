@@ -31,7 +31,7 @@ def predict_probo_class(data,model,loop,date_list,T,x):
         train_accuracy.append(score_train)
     end_clock = time.time()
     print('cpu cost time: ', end_clock - start_clock)
-    factor0_df,factor1_df=changeindex2(predict_value,loop,date_list)
+    factor0_df,factor1_df=changeindex2(data,predict_value,loop,date_list)
     return  factor0_df,factor1_df,test_accuracy,train_accuracy
 
 
@@ -184,10 +184,10 @@ def accu_score(score,name):
 
 #因子数据合成
 import itertools
-def change(data,n,m,M,date_list):
+def change(alldata,data,n,m,M,date_list):
     date=date_list[M:]
     factor_df=pd.DataFrame(columns=date)
-    factor_df['stock']=list(fill_alpha_factor_series[100].index)
+    factor_df['stock']=list(alldata[100].index)
     for i,t in itertools.zip_longest(data,date):
         temp=factor_df[['stock']]
         temp[t]=np.nan
@@ -202,9 +202,9 @@ def change(data,n,m,M,date_list):
     factorF_df=factor_df.set_index(['stock'])
     return factorF_df
 
-def changeindex2(data,M,date_list):
-    factor0_df=change(data,0,2,M,date_list)
-    factor1_df=change(data,1,2,M,date_list)
+def changeindex2(alldata,data,M,date_list):
+    factor0_df=change(alldata,data,0,2,M,date_list)
+    factor1_df=change(alldata,data,1,2,M,date_list)
     return  factor0_df,factor1_df
 
 
