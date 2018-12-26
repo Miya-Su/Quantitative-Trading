@@ -1,6 +1,6 @@
 # Miya_Test.py
 
-Miya_Test.py文件为封装包文件，包含下面34个函数部分，用于分类预测，二分类时直接调用。
+Miya_Test.py文件为封装包文件，包含下面34个函数，用于分类预测，二分类时直接调用。
 
 可以直接导入使用，完成概率因子的测试。
 
@@ -10,13 +10,17 @@ Miya_Test.py文件为封装包文件，包含下面34个函数部分，用于分
 
 ## 使用说明
 
-下面以周频数据为例，一共分为4部分：
+下面以周频数据为例，调用Miya_Test.py一共分为4部分：
+
+```
+import Miya-Test as miya
+```
 
 1.调用miya.predict_probo_class进行概率预测得到二分类的两种概率因子
 
 2.调用miya.factor_analyse将概率因子做因子处理
 
-3.=调用miya.factor_stock_choose将概率因子用作投资组合检验
+3.调用miya.factor_stock_choose将概率因子用作投资组合检验
 
 4.调用miya.show01，miya.show1进行图像分析
 
