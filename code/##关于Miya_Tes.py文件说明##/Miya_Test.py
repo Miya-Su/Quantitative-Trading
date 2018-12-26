@@ -38,6 +38,22 @@ def predict_probo_class(data,model,loop,date_list,T,x):
 
 
 #数据构造
+
+#加入十个风险因子
+def risk_factor(alpha_factor_series):
+    alpha_factor_series['beta'] = dao.get_style_risk_factor('risk_beta', 'def')
+    alpha_factor_series['mv'] = dao.get_style_risk_factor('risk_mv', 'def')
+    alpha_factor_series['vol'] = dao.get_style_risk_factor('risk_vol', 'def')
+    alpha_factor_series['liq'] = dao.get_style_risk_factor('risk_liq', 'def')
+    alpha_factor_series['ey'] = dao.get_style_risk_factor('risk_ey', 'def')
+    alpha_factor_series['bp'] = dao.get_style_risk_factor('risk_bp', 'def')
+    alpha_factor_series['mom'] = dao.get_style_risk_factor('risk_mom', 'def')
+    alpha_factor_series['lev'] = dao.get_style_risk_factor('risk_lev', 'def')
+    alpha_factor_series['nlmv'] = dao.get_style_risk_factor('risk_nlmv', 'def')
+    alpha_factor_series['gro'] = dao.get_style_risk_factor('risk_gro', 'def')
+    alpha_factor_series['trade_status'] = trade_status_df
+    return alpha_factor_series
+
 #标签值 - -分类
 
 def rise_fall_class(trade_date_m_series, T):
