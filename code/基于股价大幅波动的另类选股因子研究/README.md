@@ -41,4 +41,4 @@
 | -------------- | :----------------------------------------------------------- |
 |                | **周频数据：根据前48周的数据值预测后一周的数据**             |
 
- ![数据构造](https://github.com/Miya-Su/Quantitative-Trading/tree/miya/image/基于股价大幅波动的另类选股因子研究01.png)
+ ![数据构造](https://github.com/Miya-Su/Quantitative-Trading/raw/miya/image/基于股价大幅波动的另类选股因子研究01.png)
